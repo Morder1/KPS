@@ -1,0 +1,76 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SmartHouse
+{
+    class Ventilation
+    {
+        private bool status; //Состояние системы вентиляции
+        private double power;  //Мощность работы системы
+
+        public Ventilation()
+        {
+            status = true;
+            power = 10;
+        }
+
+        //Получение занчения мощности
+        public double getPower()
+        {
+            return power;
+        }
+
+        public string getPowerS()
+        {
+            return power.ToString();
+        }
+
+        //Изменение мощности
+        public bool changePower(int i)
+        {
+            if (i == 0)
+            {
+                if (power - 10 >= 0)
+                {
+                    power -= 10;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+                if (power + 10 <= 100)
+                {
+                    power += 10;
+                    return true;
+                }
+                else { return false; }
+        }
+
+        //Отключение вентиляции
+        public void onOffPower()
+        {
+            if (status)
+            {
+                power = 0;
+                status = false;
+            }
+            else
+            {
+                status = true;
+            }
+            //Console.WriteLine("Питание отключено.");
+        }
+
+        public bool getStatus()
+        {
+            return status;
+        }
+        
+    }
+}
