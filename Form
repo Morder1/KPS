@@ -1,0 +1,54 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace SmartHouse
+{
+
+    public partial class Form1 : Form
+    {
+        string password = "Hello";
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            button1.Enabled = false;
+            if (textBox.Text == password)
+            {
+                Form7 f = new Form7();
+                this.Hide();
+                f.ShowDialog();
+                this.Close();
+            }
+            else
+            {
+                label2.Visible = true;
+                button1.Enabled = true;
+                textBox.Text = null;
+            }
+
+        }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(sender, e);//здесь код того, что должно выполниться
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            textBox.Focus();
+            textBox.Select();
+        }
+    }
+}
