@@ -12,7 +12,7 @@ namespace SmartHouse
 
     public partial class Form1 : Form
     {
-        string password = "Hello";
+        string password = "Hye";
         public Form1()
         {
             InitializeComponent();
